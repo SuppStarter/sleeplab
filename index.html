@@ -3,440 +3,485 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080B1A">
-<title>SleepLab &mdash; The Science of Better Rest</title>
-<meta name="description" content="Evidence-based guides to sleep products, environments, and habits that actually improve your rest. Honest reviews backed by science, not marketing.">
+<meta name="theme-color" content="#0C1B33">
+<title>SleepLab &mdash; A Publication on the Science of Rest</title>
+<meta name="description" content="An editorial publication on sleep science, environment, and the products worth your money. Honest reviews, evidence-based guides, no marketing fluff.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --midnight:#080B1A;
-  --night:#0F1330;
-  --dusk:#161B3D;
-  --twilight:#1F2452;
-  --moonlight:#EDE9F5;
-  --star:#F5EFE0;
-  --amber:#E8B86D;
-  --amber-glow:#FFD089;
-  --lavender:#9F8BC4;
-  --soft-blue:#6B7FBE;
-  --muted:#7B7FA8;
-  --whisper:#3D4271;
-  --serif:'Fraunces',Georgia,serif;
-  --sans:'Inter',system-ui,-apple-system,sans-serif;
-}
+:root{--abyss:#08142A;--midnight:#0C1B33;--slate:#13243F;--twilight:#1B2A4A;--fog:#3E4F70;--moonstone:#EFE7D2;--paper:#F2EBDD;--rust:#C26C5C;--sand:#C9A66B;--muted:#8492AB;--serif:'Instrument Serif',Georgia,serif;--sans:'Plus Jakarta Sans',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-body{font-family:var(--sans);background:var(--midnight);color:var(--moonlight);line-height:1.6;overflow-x:hidden;font-weight:300}
-::selection{background:var(--amber);color:var(--midnight)}
-
-/* Animated star field */
-.stars{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at top,rgba(31,36,82,.4) 0%,transparent 60%),radial-gradient(ellipse at bottom right,rgba(159,139,196,.08) 0%,transparent 50%)}
-.star{position:absolute;width:2px;height:2px;background:white;border-radius:50%;opacity:0;animation:twinkle 4s ease-in-out infinite}
-.star.tiny{width:1px;height:1px}
-.star.bright{width:3px;height:3px;box-shadow:0 0 6px rgba(255,255,255,.6)}
-@keyframes twinkle{0%,100%{opacity:0}50%{opacity:.85}}
-
-/* Soft moon glow */
-.moon-glow{position:fixed;top:-15%;right:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(255,208,137,.08) 0%,rgba(232,184,109,.04) 30%,transparent 70%);z-index:0;pointer-events:none;animation:breathe 8s ease-in-out infinite}
-@keyframes breathe{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.08);opacity:1}}
-
-/* Navigation */
-nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:1.4rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(8,11,26,.6);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.04);transition:all .3s ease}
-.nav-logo{font-family:var(--serif);font-weight:400;font-size:1.35rem;letter-spacing:-.01em;color:var(--moonlight);text-decoration:none;display:flex;align-items:center;gap:.6rem}
-.logo-mark{width:24px;height:24px;display:inline-block;position:relative}
-.logo-mark::before{content:'';position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--amber-glow),var(--amber) 60%,#9C7A45);box-shadow:0 0 20px rgba(232,184,109,.4)}
-.logo-mark::after{content:'';position:absolute;inset:4px 0 0 6px;width:14px;height:14px;border-radius:50%;background:var(--midnight)}
-.nav-logo span{color:var(--amber)}
-.nav-links{display:flex;gap:2.2rem;font-size:.875rem;font-weight:400}
-.nav-links a{color:var(--moonlight);opacity:.7;text-decoration:none;transition:opacity .2s}
-.nav-links a:hover{opacity:1;color:var(--amber)}
-@media(max-width:640px){.nav-links{display:none}}
-
-/* Hero */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:8rem 2rem 4rem;position:relative;z-index:2}
-.hero-eyebrow{font-size:.75rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:2.5rem;opacity:0;animation:fadeUp 1.2s .3s ease forwards;display:flex;align-items:center;gap:.8rem}
-.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:30px;height:1px;background:var(--amber);opacity:.4}
-.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(3rem,8vw,6.5rem);line-height:1;letter-spacing:-.04em;color:var(--moonlight);margin-bottom:1.8rem;opacity:0;animation:fadeUp 1.4s .6s ease forwards;max-width:900px}
-.hero h1 em{font-style:italic;color:var(--amber);font-weight:300}
-.hero-lead{font-size:clamp(1.05rem,1.6vw,1.2rem);line-height:1.7;color:var(--moonlight);opacity:0;animation:fadeUp 1.4s .9s ease forwards;max-width:560px;margin-bottom:3rem;font-weight:300}
-.hero-lead strong{color:var(--moonlight);font-weight:400}
-.hero-cta{display:flex;gap:1rem;opacity:0;animation:fadeUp 1.4s 1.2s ease forwards;flex-wrap:wrap;justify-content:center}
-.btn{padding:.95rem 2rem;border-radius:999px;font-size:.875rem;font-weight:500;text-decoration:none;transition:all .25s ease;display:inline-flex;align-items:center;gap:.5rem;letter-spacing:.01em;border:1px solid transparent}
-.btn-primary{background:var(--amber);color:var(--midnight)}
-.btn-primary:hover{background:var(--amber-glow);transform:translateY(-2px);box-shadow:0 12px 32px rgba(232,184,109,.3)}
-.btn-ghost{background:transparent;color:var(--moonlight);border-color:rgba(255,255,255,.15)}
-.btn-ghost:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.3)}
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-
-.scroll-hint{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);opacity:0;animation:fadeUp 2s 1.8s ease forwards,bob 2.5s 2.5s ease-in-out infinite;display:flex;flex-direction:column;align-items:center;gap:.6rem}
-.scroll-hint::after{content:'';width:1px;height:30px;background:linear-gradient(to bottom,var(--muted),transparent)}
-@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
-
-/* Reveal animations */
-.reveal{opacity:0;transform:translateY(40px);transition:opacity 1s ease,transform 1s ease}
+body{font-family:var(--sans);background:var(--midnight);color:var(--moonstone);line-height:1.6;font-weight:300;overflow-x:hidden}
+::selection{background:var(--sand);color:var(--abyss)}
+a{color:inherit;text-decoration:none}
+img,svg{max-width:100%;display:block}
+.masthead{position:sticky;top:0;z-index:50;background:rgba(12,27,51,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(239,231,210,.1)}
+.masthead-inner{max-width:1400px;margin:0 auto;padding:1.2rem 2rem;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:2rem}
+.masthead-meta{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.masthead-logo{font-family:var(--serif);font-size:1.8rem;letter-spacing:-.02em;color:var(--moonstone);font-weight:400;text-align:center;line-height:1}
+.masthead-logo em{font-style:italic;color:var(--sand)}
+.masthead-actions{justify-self:end;display:flex;gap:1.6rem;align-items:center;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.masthead-actions a:hover{color:var(--sand)}
+.masthead-sub{padding:.5rem 2rem;border-bottom:1px solid rgba(239,231,210,.06);background:rgba(8,20,42,.5)}
+.masthead-sub-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:center;gap:2.5rem;font-family:var(--sans);font-size:.78rem;letter-spacing:.06em;color:var(--moonstone);font-weight:400}
+.masthead-sub-inner a{opacity:.7;transition:opacity .2s}
+.masthead-sub-inner a:hover{opacity:1;color:var(--sand)}
+.cover{max-width:1400px;margin:0 auto;padding:5rem 2rem 6rem;display:grid;grid-template-columns:1.4fr 1fr;gap:5rem;align-items:center;position:relative}
+.cover::before{content:'';position:absolute;top:0;left:2rem;right:2rem;height:1px;background:linear-gradient(90deg,transparent,rgba(239,231,210,.12),transparent)}
+.cover-issue{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);font-weight:500;margin-bottom:1.2rem;display:flex;align-items:center;gap:1rem}
+.cover-issue::before{content:'';width:36px;height:1px;background:var(--rust)}
+.cover-headline{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,6.5vw,5.6rem);line-height:1.02;letter-spacing:-.025em;color:var(--moonstone);margin-bottom:1.8rem}
+.cover-headline em{font-style:italic;color:var(--sand);display:inline-block}
+.cover-dek{font-family:var(--serif);font-style:italic;font-size:clamp(1.1rem,1.5vw,1.4rem);line-height:1.5;color:var(--moonstone);opacity:.8;max-width:560px;margin-bottom:2.5rem;font-weight:400}
+.cover-byline{display:flex;align-items:center;gap:1.4rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
+.cover-byline-dot{width:3px;height:3px;border-radius:50%;background:var(--muted)}
+.cover-cta{display:inline-flex;align-items:center;gap:.7rem;font-family:var(--sans);font-weight:500;font-size:.92rem;color:var(--moonstone);padding:1rem 2rem;border:1px solid var(--moonstone);transition:all .3s ease;letter-spacing:.02em}
+.cover-cta:hover{background:var(--moonstone);color:var(--abyss)}
+.cover-art{position:relative;aspect-ratio:1/1.1;display:flex;align-items:center;justify-content:center}
+.cover-art-circle{position:absolute;inset:0;border:1px solid rgba(201,166,107,.15);border-radius:50%}
+.cover-art-circle:nth-child(2){inset:8%}
+.cover-art-circle:nth-child(3){inset:18%}
+.cover-art-moon{position:absolute;inset:30%;border-radius:50%;background:radial-gradient(circle at 30% 30%,#FFE9C4,#D4A574 40%,#8B6332 90%);box-shadow:0 0 80px rgba(201,166,107,.3),inset -20px -20px 50px rgba(0,0,0,.3);animation:float 8s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@media(max-width:900px){.cover{grid-template-columns:1fr;gap:3rem;padding:3rem 1.5rem 4rem}.cover-art{order:-1;aspect-ratio:1/.7;max-width:300px;margin:0 auto}.masthead-inner{grid-template-columns:auto 1fr auto;gap:1rem}.masthead-meta{font-size:.62rem}.masthead-actions{font-size:.62rem;gap:1rem}.masthead-sub-inner{flex-wrap:wrap;justify-content:flex-start;gap:1.2rem}}
+@media(max-width:640px){.masthead-meta{display:none}}.section-tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);font-weight:500;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem}
+.section-tag::after{content:'';flex:1;height:1px;background:rgba(194,108,92,.25)}
+.section-title{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4vw,3.4rem);line-height:1.1;letter-spacing:-.02em;color:var(--moonstone);margin-bottom:1rem;max-width:780px}
+.section-title em{font-style:italic;color:var(--sand)}
+.section-dek{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--moonstone);opacity:.7;line-height:1.55;max-width:600px;margin-bottom:3.5rem;font-weight:400}
+.cycle{padding:6rem 2rem;background:linear-gradient(180deg,var(--abyss),var(--midnight));position:relative;overflow:hidden;border-top:1px solid rgba(239,231,210,.08)}
+.cycle-inner{max-width:1400px;margin:0 auto}
+.cycle-svg-wrap{position:relative;border:1px solid rgba(239,231,210,.08);padding:3rem 2rem 4rem;background:rgba(8,20,42,.4);margin-top:2rem}
+.cycle-stages{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
+.cycle-stage{cursor:pointer;transition:color .25s ease;padding:.4rem .6rem}
+.cycle-stage:hover,.cycle-stage.active{color:var(--sand)}
+.cycle-svg{width:100%;height:auto}
+.cycle-time-axis{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.65rem;color:var(--muted);margin-top:1rem;padding:0 .5rem}
+.cycle-info{margin-top:2rem;min-height:80px;padding:1.5rem;background:rgba(27,42,74,.4);border-left:2px solid var(--sand)}
+.cycle-info-stage{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sand);margin-bottom:.4rem;font-weight:500}
+.cycle-info-text{font-family:var(--serif);font-size:1.05rem;line-height:1.6;color:var(--moonstone);font-weight:400}
+.stack{padding:7rem 2rem;max-width:1400px;margin:0 auto}
+.stack-list{margin-top:2rem;border-top:1px solid rgba(239,231,210,.1)}
+.stack-item{display:grid;grid-template-columns:80px 1fr auto auto;gap:2rem;align-items:center;padding:2rem 1rem;border-bottom:1px solid rgba(239,231,210,.1);transition:all .35s ease;cursor:pointer;position:relative}
+.stack-item:hover{background:rgba(27,42,74,.3);padding-left:2rem}
+.stack-item:hover .stack-arrow{transform:translateX(8px);color:var(--sand)}
+.stack-num{font-family:var(--serif);font-style:italic;font-weight:400;font-size:2.4rem;color:var(--sand);line-height:1;letter-spacing:-.01em}
+.stack-content h3{font-family:var(--serif);font-weight:400;font-size:1.7rem;color:var(--moonstone);line-height:1.2;margin-bottom:.4rem;letter-spacing:-.01em}
+.stack-content p{font-size:.92rem;color:var(--moonstone);opacity:.65;font-weight:300;line-height:1.5;max-width:560px}
+.stack-time{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+.stack-arrow{font-size:1.2rem;color:var(--muted);transition:all .35s ease}
+@media(max-width:768px){.stack-item{grid-template-columns:60px 1fr auto;gap:1.2rem;padding:1.5rem .5rem}.stack-num{font-size:1.8rem}.stack-content h3{font-size:1.3rem}.stack-time{display:none}}
+.dispatches{padding:6rem 2rem;background:rgba(8,20,42,.6);border-top:1px solid rgba(239,231,210,.06);border-bottom:1px solid rgba(239,231,210,.06)}
+.dispatches-inner{max-width:1400px;margin:0 auto}
+.dispatches-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:2.5rem}
+.dispatch-col{padding:0 2rem;border-right:1px solid rgba(239,231,210,.08)}
+.dispatch-col:first-child{padding-left:0}
+.dispatch-col:last-child{border-right:none;padding-right:0}
+.dispatch-col-tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);font-weight:500;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid rgba(194,108,92,.25)}
+.dispatch-item{padding:1.4rem 0;border-bottom:1px solid rgba(239,231,210,.06)}
+.dispatch-item:last-child{border-bottom:none}
+.dispatch-item:hover h4{color:var(--sand)}
+.dispatch-meta{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;margin-bottom:.5rem}
+.dispatch-item h4{font-family:var(--serif);font-weight:400;font-size:1.25rem;color:var(--moonstone);line-height:1.3;letter-spacing:-.005em;transition:color .25s ease;margin-bottom:.4rem}
+.dispatch-item p{font-size:.88rem;color:var(--moonstone);opacity:.65;font-weight:300;line-height:1.5}
+@media(max-width:900px){.dispatches-grid{grid-template-columns:1fr;gap:0}.dispatch-col{padding:2rem 0;border-right:none;border-bottom:1px solid rgba(239,231,210,.08)}.dispatch-col:last-child{border-bottom:none}}.pullquote{padding:8rem 2rem;max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 3fr 1fr;gap:2rem;align-items:flex-start}
+.pullquote-mark{font-family:var(--serif);font-style:italic;font-size:5rem;color:var(--sand);line-height:.7;text-align:right;opacity:.4}
+.pullquote-body{padding-top:1.5rem}
+.pullquote-text{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.6rem,3.4vw,2.6rem);line-height:1.3;color:var(--moonstone);letter-spacing:-.01em;margin-bottom:2rem}
+.pullquote-cite{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500;display:flex;align-items:center;gap:1rem}
+.pullquote-cite::before{content:'';width:30px;height:1px;background:var(--muted)}
+@media(max-width:768px){.pullquote{grid-template-columns:1fr;gap:1rem;padding:5rem 1.5rem}.pullquote-mark{text-align:left;font-size:3rem}}
+.archive{padding:7rem 2rem;max-width:1400px;margin:0 auto}
+.archive-table{margin-top:2.5rem;border-top:1px solid rgba(239,231,210,.1)}
+.archive-row{display:grid;grid-template-columns:120px 1fr 180px 80px;gap:2rem;align-items:baseline;padding:1.5rem 1rem;border-bottom:1px solid rgba(239,231,210,.08);transition:all .25s ease;cursor:pointer}
+.archive-row:hover{background:rgba(27,42,74,.3);padding-left:1.6rem}
+.archive-row:hover h4{color:var(--sand)}
+.archive-date{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.archive-row h4{font-family:var(--serif);font-weight:400;font-size:1.4rem;color:var(--moonstone);line-height:1.25;letter-spacing:-.005em;transition:color .25s ease}
+.archive-byline{font-size:.82rem;color:var(--muted);font-weight:300;font-style:italic}
+.archive-time{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--muted);text-align:right}
+@media(max-width:768px){.archive-row{grid-template-columns:1fr;gap:.4rem;padding:1.2rem .5rem}.archive-row h4{font-size:1.15rem}.archive-date,.archive-byline,.archive-time{font-size:.7rem}}
+.subscribe{padding:7rem 2rem;background:linear-gradient(180deg,var(--abyss),var(--midnight));border-top:1px solid rgba(239,231,210,.06)}
+.subscribe-inner{max-width:780px;margin:0 auto;text-align:center}
+.subscribe-tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);font-weight:500;margin-bottom:1.5rem;display:inline-block}
+.subscribe h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4.5vw,3.4rem);line-height:1.1;letter-spacing:-.02em;color:var(--moonstone);margin-bottom:1.2rem}
+.subscribe h2 em{font-style:italic;color:var(--sand)}
+.subscribe p{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--moonstone);opacity:.7;margin-bottom:2.5rem;font-weight:400}
+.subscribe-form{display:flex;gap:0;border:1px solid rgba(239,231,210,.2);max-width:480px;margin:0 auto;background:rgba(8,20,42,.5);transition:border-color .3s ease}
+.subscribe-form:focus-within{border-color:var(--sand)}
+.subscribe-form input{flex:1;background:transparent;border:none;outline:none;color:var(--moonstone);font-family:var(--sans);font-size:.92rem;padding:1.1rem 1.4rem;font-weight:400}
+.subscribe-form input::placeholder{color:var(--muted);font-weight:300}
+.subscribe-form button{background:var(--moonstone);color:var(--abyss);border:none;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;padding:0 2rem;cursor:pointer;transition:background .25s ease}
+.subscribe-form button:hover{background:var(--sand)}
+.subscribe-meta{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:1.5rem}
+footer{padding:5rem 2rem 3rem;background:var(--abyss)}
+.footer-inner{max-width:1400px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(239,231,210,.08)}
+.footer-brand{font-family:var(--serif);font-size:2rem;letter-spacing:-.02em;color:var(--moonstone);margin-bottom:.8rem;font-weight:400}
+.footer-brand em{font-style:italic;color:var(--sand)}
+.footer-tagline{font-family:var(--serif);font-style:italic;color:var(--moonstone);opacity:.6;font-size:.95rem;line-height:1.5;max-width:340px}
+.footer-col-title{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:1.2rem}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:.7rem}
+.footer-col a{font-size:.88rem;color:var(--moonstone);opacity:.7;transition:all .25s ease;font-weight:300}
+.footer-col a:hover{opacity:1;color:var(--sand)}
+.footer-bottom{padding-top:2rem;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:768px){.footer-top{grid-template-columns:1fr 1fr;gap:2rem}.footer-bottom{flex-direction:column;gap:1rem;text-align:center}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.25,.46,.45,.94),transform .9s cubic-bezier(.25,.46,.45,.94)}
 .reveal.in{opacity:1;transform:translateY(0)}
-.reveal.delay-1{transition-delay:.1s}
-.reveal.delay-2{transition-delay:.2s}
-.reveal.delay-3{transition-delay:.3s}
-.reveal.delay-4{transition-delay:.4s}
-
-/* Section base */
-section{position:relative;z-index:2;padding:8rem 2rem}
-.container{max-width:1200px;margin:0 auto}
-.section-eyebrow{font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:1.2rem;display:flex;align-items:center;gap:.7rem}
-.section-eyebrow::before{content:'';width:24px;height:1px;background:var(--amber);opacity:.5}
-.section-title{font-family:var(--serif);font-weight:300;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.1;letter-spacing:-.03em;color:var(--moonlight);margin-bottom:1.5rem;max-width:720px}
-.section-title em{font-style:italic;color:var(--amber)}
-.section-lead{font-size:1.08rem;color:var(--moonlight);opacity:.7;line-height:1.75;max-width:600px;font-weight:300;margin-bottom:4rem}
-
-/* Pillars section */
-.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem}
-.pillar{padding:2.5rem 2rem;border-radius:24px;background:linear-gradient(180deg,rgba(31,36,82,.3),rgba(15,19,48,.2));border:1px solid rgba(255,255,255,.06);transition:all .4s ease;position:relative;overflow:hidden}
-.pillar::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at top,rgba(232,184,109,.08),transparent 60%);opacity:0;transition:opacity .4s ease}
-.pillar:hover{transform:translateY(-6px);border-color:rgba(232,184,109,.2);background:linear-gradient(180deg,rgba(31,36,82,.5),rgba(15,19,48,.3))}
-.pillar:hover::before{opacity:1}
-.pillar-icon{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,rgba(232,184,109,.15),rgba(232,184,109,.05));display:flex;align-items:center;justify-content:center;margin-bottom:1.6rem;position:relative;z-index:1}
-.pillar-icon svg{width:26px;height:26px;stroke:var(--amber);fill:none;stroke-width:1.4}
-.pillar h3{font-family:var(--serif);font-weight:400;font-size:1.4rem;line-height:1.3;color:var(--moonlight);margin-bottom:.8rem;position:relative;z-index:1}
-.pillar p{font-size:.95rem;color:var(--moonlight);opacity:.65;line-height:1.7;font-weight:300;position:relative;z-index:1}
-
-/* Stats section */
-.stats-section{background:linear-gradient(180deg,transparent,rgba(31,36,82,.3),transparent);padding:6rem 2rem}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:3rem;text-align:center}
-.stat-num{font-family:var(--serif);font-weight:300;font-size:clamp(3rem,5vw,4.5rem);line-height:1;color:var(--amber);margin-bottom:.6rem;letter-spacing:-.03em}
-.stat-num small{font-size:.4em;color:var(--moonlight);opacity:.5;font-weight:300;margin-left:.2em}
-.stat-label{font-size:.92rem;color:var(--moonlight);opacity:.7;font-weight:300;line-height:1.5;max-width:240px;margin:0 auto}
-
-/* Categories section */
-.categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-top:2rem}
-.cat-card{position:relative;border-radius:24px;overflow:hidden;background:linear-gradient(135deg,var(--dusk),var(--night));border:1px solid rgba(255,255,255,.06);min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;padding:2rem;text-decoration:none;transition:all .5s ease;cursor:pointer}
-.cat-card::before{content:'';position:absolute;inset:0;opacity:.6;transition:opacity .5s ease}
-.cat-card.cat-mattress::before{background:radial-gradient(ellipse at top right,rgba(159,139,196,.3),transparent 60%)}
-.cat-card.cat-pillow::before{background:radial-gradient(ellipse at top right,rgba(107,127,190,.3),transparent 60%)}
-.cat-card.cat-light::before{background:radial-gradient(ellipse at top right,rgba(232,184,109,.3),transparent 60%)}
-.cat-card.cat-sound::before{background:radial-gradient(ellipse at top right,rgba(159,139,196,.25),rgba(107,127,190,.15) 40%,transparent 70%)}
-.cat-card.cat-temp::before{background:radial-gradient(ellipse at top right,rgba(107,127,190,.3),rgba(232,184,109,.1) 50%,transparent 70%)}
-.cat-card.cat-aroma::before{background:radial-gradient(ellipse at top right,rgba(232,184,109,.2),rgba(159,139,196,.15) 50%,transparent 70%)}
-.cat-card:hover{transform:translateY(-6px);border-color:rgba(232,184,109,.25)}
-.cat-card:hover::before{opacity:1}
-.cat-icon{position:absolute;top:2rem;right:2rem;width:40px;height:40px;display:flex;align-items:center;justify-content:center;opacity:.5}
-.cat-icon svg{width:32px;height:32px;stroke:var(--moonlight);fill:none;stroke-width:1}
-.cat-tag{font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:.7rem;position:relative}
-.cat-card h4{font-family:var(--serif);font-weight:400;font-size:1.6rem;line-height:1.2;color:var(--moonlight);margin-bottom:.6rem;position:relative}
-.cat-card p{font-size:.88rem;color:var(--moonlight);opacity:.65;line-height:1.6;font-weight:300;position:relative}
-.cat-arrow{position:relative;margin-top:1.4rem;font-size:.8rem;color:var(--amber);display:flex;align-items:center;gap:.4rem;opacity:.7;transition:all .3s ease}
-.cat-card:hover .cat-arrow{opacity:1;gap:.7rem}
-
-/* Science quote */
-.quote-section{padding:8rem 2rem;text-align:center}
-.quote{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.4rem,3vw,2.2rem);line-height:1.4;color:var(--moonlight);max-width:780px;margin:0 auto;letter-spacing:-.01em}
-.quote::before,.quote::after{content:'';display:inline-block;width:30px;height:1px;background:var(--amber);vertical-align:middle;margin:0 1.5rem;opacity:.5}
-.quote-cite{display:block;font-family:var(--sans);font-style:normal;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:2rem;font-weight:500}
-
-/* Articles preview */
-.articles-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
-.article{background:linear-gradient(180deg,rgba(31,36,82,.3),rgba(15,19,48,.2));border:1px solid rgba(255,255,255,.06);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;transition:all .4s ease;display:flex;flex-direction:column}
-.article:hover{transform:translateY(-4px);border-color:rgba(232,184,109,.2)}
-.article-cover{height:180px;position:relative;overflow:hidden}
-.article-cover-1{background:linear-gradient(135deg,#1F2452,#2A1F44 50%,#3D2A52)}
-.article-cover-2{background:linear-gradient(135deg,#161B3D,#3D4271 50%,#5A4A7A)}
-.article-cover-3{background:linear-gradient(135deg,#0F1330,#1F2452 60%,#3D2F1F)}
-.article-cover::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.08),transparent 60%)}
-.article-body{padding:1.6rem 1.8rem 1.8rem;display:flex;flex-direction:column;flex:1}
-.article-tag{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-weight:500;margin-bottom:.7rem}
-.article h4{font-family:var(--serif);font-weight:400;font-size:1.3rem;line-height:1.3;margin-bottom:.7rem;color:var(--moonlight)}
-.article p{font-size:.88rem;line-height:1.6;color:var(--moonlight);opacity:.65;font-weight:300;flex:1;margin-bottom:1.2rem}
-.article-meta{font-size:.75rem;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
-.article-meta-read{color:var(--amber)}
-
-/* CTA / Closing */
-.closing{padding:8rem 2rem;text-align:center;position:relative;z-index:2}
-.closing-card{max-width:780px;margin:0 auto;padding:5rem 3rem;border-radius:32px;background:linear-gradient(135deg,rgba(31,36,82,.6),rgba(22,27,61,.4));border:1px solid rgba(255,255,255,.08);position:relative;overflow:hidden}
-.closing-card::before{content:'';position:absolute;top:-50%;right:-30%;width:500px;height:500px;background:radial-gradient(circle,rgba(232,184,109,.1),transparent 70%);border-radius:50%}
-.closing h2{font-family:var(--serif);font-weight:300;font-size:clamp(2rem,4vw,3rem);line-height:1.15;letter-spacing:-.02em;color:var(--moonlight);margin-bottom:1.2rem;position:relative}
-.closing h2 em{color:var(--amber);font-style:italic}
-.closing p{color:var(--moonlight);opacity:.7;font-size:1.05rem;line-height:1.7;max-width:520px;margin:0 auto 2.5rem;font-weight:300;position:relative}
-
-/* Footer */
-footer{padding:4rem 2rem 3rem;border-top:1px solid rgba(255,255,255,.05);position:relative;z-index:2}
-.footer-content{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:2rem}
-.footer-brand{font-family:var(--serif);font-size:1.2rem;color:var(--moonlight);font-weight:400;margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}
-.footer-tag{color:var(--muted);font-size:.85rem;font-weight:300;max-width:340px;line-height:1.6}
-.footer-meta{font-size:.8rem;color:var(--muted);text-align:right;line-height:1.7}
-.footer-bottom{max-width:1200px;margin:3rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,.05);font-size:.75rem;color:var(--muted);text-align:center;letter-spacing:.05em}
-
-/* Responsive */
-@media(max-width:640px){
-  section{padding:5rem 1.5rem}
-  .hero{padding:7rem 1.5rem 4rem}
-  .quote::before,.quote::after{display:none}
-  .closing-card{padding:3.5rem 2rem}
-  .footer-content{flex-direction:column;align-items:flex-start}
-  .footer-meta{text-align:left}
-}</style>
+.reveal.d1{transition-delay:.08s}
+.reveal.d2{transition-delay:.16s}
+.reveal.d3{transition-delay:.24s}
+.reveal.d4{transition-delay:.32s}
+.reveal.d5{transition-delay:.4s}
+.reveal.d6{transition-delay:.48s}</style>
 </head>
 <body>
-<div class="moon-glow"></div>
-<div class="stars" id="stars"></div>
-
-<nav id="nav">
-  <a href="#" class="nav-logo"><span class="logo-mark"></span>Sleep<span>Lab</span></a>
-  <div class="nav-links">
-    <a href="#science">Science</a>
-    <a href="#categories">Guides</a>
-    <a href="#articles">Read</a>
-    <a href="#about">About</a>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-meta">Vol. 01 &mdash; Issue 001 &mdash; April 2026</div>
+    <a href="/sleeplab/" class="masthead-logo">Sleep<em>Lab</em></a>
+    <div class="masthead-actions">
+      <a href="#archive">Archive</a>
+      <a href="#subscribe">Subscribe</a>
+    </div>
   </div>
-</nav>
-
-<header class="hero">
-  <div class="hero-eyebrow">Where sleep meets science</div>
-  <h1>The art of <em>truly</em> resting.</h1>
-  <p class="hero-lead">Most of what you've been told about sleep is marketing. <strong>SleepLab</strong> cuts through the noise &mdash; honest, evidence-based guides to the products, habits, and environments that actually help you sleep better.</p>
-  <div class="hero-cta">
-    <a href="#categories" class="btn btn-primary">Explore the science <span>&rarr;</span></a>
-    <a href="#articles" class="btn btn-ghost">Read latest guides</a>
+  <div class="masthead-sub">
+    <div class="masthead-sub-inner">
+      <a href="#cycle">The Cycle</a>
+      <a href="#stack">The Stack</a>
+      <a href="#dispatches">Dispatches</a>
+      <a href="#archive">Archive</a>
+      <a href="#subscribe">Newsletter</a>
+    </div>
   </div>
-  <div class="scroll-hint">Scroll to begin</div>
 </header>
 
-<section id="science">
-  <div class="container">
+<section class="cover">
+  <div class="cover-issue reveal">Featured Essay &mdash; 12 min read</div>
+  <div>
+    <h1 class="cover-headline reveal d1">Why your bedroom is <em>fighting</em> your sleep.</h1>
+    <p class="cover-dek reveal d2">Five environmental factors silently determine whether you fall asleep fast and stay asleep deep. We examined what the research actually says &mdash; and what to do about each one tonight.</p>
+    <div class="cover-byline reveal d3">
+      <span>By the editors</span>
+      <span class="cover-byline-dot"></span>
+      <span>April 25, 2026</span>
+    </div>
+    <a href="#stack" class="cover-cta reveal d3">Read the essay <span>&rarr;</span></a>
+  </div>
+  <div class="cover-art reveal d2">
+    <div class="cover-art-circle"></div>
+    <div class="cover-art-circle"></div>
+    <div class="cover-art-circle"></div>
+    <div class="cover-art-moon"></div>
+  </div>
+</section>
+
+<section class="cycle" id="cycle">
+  <div class="cycle-inner">
     <div class="reveal">
-      <div class="section-eyebrow">Our approach</div>
-      <h2 class="section-title">Sleep is not a luxury. It is the <em>foundation</em> on which everything else stands.</h2>
-      <p class="section-lead">Every guide on this site begins with the same question: what does the science actually say? Not what's trending. Not what's profitable to sell. What's been studied, replicated, and proven to make a difference.</p>
+      <div class="section-tag">A night of sleep, mapped</div>
+      <h2 class="section-title">Eight hours, <em>five cycles</em>.</h2>
+      <p class="section-dek">Sleep is not a single state. It is a precise architecture of repeating cycles, each one different, each one essential. Hover over any stage to see what it actually does for you.</p>
     </div>
-    <div class="pillars">
-      <div class="pillar reveal delay-1">
-        <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 2v3M12 19v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M2 12h3M19 12h3M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/><circle cx="12" cy="12" r="4"/></svg></div>
-        <h3>Evidence over opinion</h3>
-        <p>Recommendations are based on peer-reviewed research and clinical trials &mdash; not influencers, not affiliate kickbacks, not personal anecdote.</p>
+    <div class="cycle-svg-wrap reveal d1">
+      <div class="cycle-stages">
+        <span class="cycle-stage" data-stage="awake">Awake</span>
+        <span class="cycle-stage" data-stage="rem">REM</span>
+        <span class="cycle-stage" data-stage="n1">Stage 1</span>
+        <span class="cycle-stage" data-stage="n2">Stage 2</span>
+        <span class="cycle-stage" data-stage="n3">Deep (N3)</span>
       </div>
-      <div class="pillar reveal delay-2">
-        <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div>
-        <h3>Designed for real life</h3>
-        <p>Sleep advice that doesn't fit your life is useless. We focus on what's practical, sustainable, and actually achievable for working adults.</p>
+      <svg class="cycle-svg" viewBox="0 0 1000 240" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="cycleGrad" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#C9A66B" stop-opacity=".4"/>
+            <stop offset="100%" stop-color="#C9A66B" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <line x1="0" y1="40" x2="1000" y2="40" stroke="rgba(239,231,210,.06)" stroke-dasharray="2,4"/>
+        <line x1="0" y1="80" x2="1000" y2="80" stroke="rgba(239,231,210,.06)" stroke-dasharray="2,4"/>
+        <line x1="0" y1="120" x2="1000" y2="120" stroke="rgba(239,231,210,.06)" stroke-dasharray="2,4"/>
+        <line x1="0" y1="160" x2="1000" y2="160" stroke="rgba(239,231,210,.06)" stroke-dasharray="2,4"/>
+        <line x1="0" y1="200" x2="1000" y2="200" stroke="rgba(239,231,210,.06)" stroke-dasharray="2,4"/>
+        <path id="cyclePath" d="M 0 40 L 30 40 C 50 40, 60 80, 80 80 C 100 80, 110 120, 130 120 C 150 120, 160 200, 200 200 L 230 200 C 250 200, 260 120, 280 120 C 300 120, 310 80, 330 80 L 370 80 C 380 80, 390 40, 410 40 L 440 40 C 460 40, 470 80, 490 80 C 510 80, 520 120, 540 120 C 560 120, 570 180, 600 180 L 630 180 C 650 180, 660 80, 690 80 L 720 80 C 730 80, 740 40, 760 40 L 790 40 C 810 40, 820 80, 850 80 C 870 80, 880 120, 900 120 C 920 120, 930 80, 960 80 L 1000 80" fill="none" stroke="#C9A66B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M 0 40 L 30 40 C 50 40, 60 80, 80 80 C 100 80, 110 120, 130 120 C 150 120, 160 200, 200 200 L 230 200 C 250 200, 260 120, 280 120 C 300 120, 310 80, 330 80 L 370 80 C 380 80, 390 40, 410 40 L 440 40 C 460 40, 470 80, 490 80 C 510 80, 520 120, 540 120 C 560 120, 570 180, 600 180 L 630 180 C 650 180, 660 80, 690 80 L 720 80 C 730 80, 740 40, 760 40 L 790 40 C 810 40, 820 80, 850 80 C 870 80, 880 120, 900 120 C 920 120, 930 80, 960 80 L 1000 80 L 1000 240 L 0 240 Z" fill="url(#cycleGrad)" opacity=".5"/>
+        <text x="-12" y="44" fill="#8492AB" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="end">Awake</text>
+        <text x="-12" y="84" fill="#8492AB" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="end">REM</text>
+        <text x="-12" y="124" fill="#8492AB" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="end">N1</text>
+        <text x="-12" y="164" fill="#8492AB" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="end">N2</text>
+        <text x="-12" y="204" fill="#8492AB" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="end">N3</text>
+      </svg>
+      <div class="cycle-time-axis">
+        <span>11 PM</span><span>12 AM</span><span>1 AM</span><span>2 AM</span><span>3 AM</span><span>4 AM</span><span>5 AM</span><span>6 AM</span><span>7 AM</span>
       </div>
-      <div class="pillar reveal delay-3">
-        <div class="pillar-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-        <h3>Long-term, not quick fix</h3>
-        <p>There are no miracle products. We focus on building a sleep environment and routine that compounds, week after week, year after year.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="stats-section">
-  <div class="container">
-    <div class="stats">
-      <div class="reveal">
-        <div class="stat-num" data-target="33">33<small>%</small></div>
-        <div class="stat-label">of your life is spent asleep &mdash; or supposed to be</div>
-      </div>
-      <div class="reveal delay-1">
-        <div class="stat-num" data-target="40">40<small>%</small></div>
-        <div class="stat-label">of adults are functionally sleep-deprived in modern societies</div>
-      </div>
-      <div class="reveal delay-2">
-        <div class="stat-num" data-target="2">2<small>x</small></div>
-        <div class="stat-label">stronger immune response after one full night of restorative sleep</div>
-      </div>
-      <div class="reveal delay-3">
-        <div class="stat-num" data-target="60">60<small>%</small></div>
-        <div class="stat-label">improved memory consolidation in well-rested individuals</div>
+      <div class="cycle-info" id="cycleInfo">
+        <div class="cycle-info-stage">Begin exploring</div>
+        <p class="cycle-info-text">Hover over any stage above to learn what it does. Each cycle lasts about 90 minutes and you go through five of them per night &mdash; if your environment lets you.</p>
       </div>
     </div>
   </div>
+</section><section class="stack" id="stack">
+  <div class="reveal">
+    <div class="section-tag">The Stack</div>
+    <h2 class="section-title">Six chapters on building a <em>better night</em>.</h2>
+    <p class="section-dek">Each chapter is an in-depth look at one element of your sleep environment, what the science says, and which products actually deliver on their promises.</p>
+  </div>
+  <div class="stack-list">
+    <a href="#" class="stack-item reveal d1">
+      <div class="stack-num"><em>i</em></div>
+      <div class="stack-content">
+        <h3>Light, and the hijacking of your hormones</h3>
+        <p>Why color temperature, intensity, and timing matter more than nearly any supplement &mdash; and how to take back control with smart bulbs and morning sun.</p>
+      </div>
+      <div class="stack-time">14 min</div>
+      <div class="stack-arrow">&rarr;</div>
+    </a>
+    <a href="#" class="stack-item reveal d1">
+      <div class="stack-num"><em>ii</em></div>
+      <div class="stack-content">
+        <h3>Temperature: the most underrated variable</h3>
+        <p>Your body must drop its core temperature by roughly one degree to enter deep sleep. Cooling mattresses, fans, and the science behind why 18&deg;C is so often cited.</p>
+      </div>
+      <div class="stack-time">11 min</div>
+      <div class="stack-arrow">&rarr;</div>
+    </a>
+    <a href="#" class="stack-item reveal d2">
+      <div class="stack-num"><em>iii</em></div>
+      <div class="stack-content">
+        <h3>Sound, silence, and the listening brain</h3>
+        <p>Your auditory cortex never fully sleeps. White noise, pink noise, brown noise, earplugs &mdash; what masks effectively without flattening your sleep architecture.</p>
+      </div>
+      <div class="stack-time">9 min</div>
+      <div class="stack-arrow">&rarr;</div>
+    </a>
+    <a href="#" class="stack-item reveal d2">
+      <div class="stack-num"><em>iv</em></div>
+      <div class="stack-content">
+        <h3>Surface: the mattress and pillow truth</h3>
+        <p>Cervical alignment, pressure relief, materials, and why the &ldquo;best mattress&rdquo; depends entirely on your sleep position and body composition.</p>
+      </div>
+      <div class="stack-time">15 min</div>
+      <div class="stack-arrow">&rarr;</div>
+    </a>
+    <a href="#" class="stack-item reveal d3">
+      <div class="stack-num"><em>v</em></div>
+      <div class="stack-content">
+        <h3>Air, allergens, and what you breathe</h3>
+        <p>Humidity, particulate matter, and the surprisingly large impact of bedroom air quality on REM sleep stability and morning cognition.</p>
+      </div>
+      <div class="stack-time">8 min</div>
+      <div class="stack-arrow">&rarr;</div>
+    </a>
+    <a href="#" class="stack-item reveal d3">
+      <div class="stack-num"><em>vi</em></div>
+      <div class="stack-content">
+        <h3>Routine: the unsexy multiplier</h3>
+        <p>The behavioral interventions that compound every other improvement. Wind-down rituals, screen timing, and why consistency outperforms intensity.</p>
+      </div>
+      <div class="stack-time">10 min</div>
+      <div class="stack-arrow">&rarr;</div>
+    </a>
+  </div>
 </section>
 
-<section id="categories">
-  <div class="container">
+<section class="dispatches" id="dispatches">
+  <div class="dispatches-inner">
     <div class="reveal">
-      <div class="section-eyebrow">The guides</div>
-      <h2 class="section-title">Build the perfect <em>sleep environment</em>, layer by layer.</h2>
-      <p class="section-lead">Your bedroom is a system. Light, sound, temperature, surface, scent &mdash; each one independently affects sleep architecture. Our guides cover what works, what's overhyped, and the products worth your money.</p>
+      <div class="section-tag">Recent Dispatches</div>
+      <h2 class="section-title">Three <em>departments</em>, one obsession.</h2>
     </div>
-    <div class="categories">
-      <a href="#" class="cat-card cat-mattress reveal">
-        <div class="cat-icon"><svg viewBox="0 0 32 32"><rect x="2" y="14" width="28" height="10" rx="2"/><path d="M4 14V8a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2v6"/><path d="M6 24v3M26 24v3"/></svg></div>
-        <div>
-          <div class="cat-tag">Foundation</div>
-          <h4>Mattresses &amp; toppers</h4>
-          <p>How firmness, materials, and temperature regulation actually affect deep sleep stages.</p>
-          <div class="cat-arrow">Coming soon <span>&rarr;</span></div>
-        </div>
-      </a>
-      <a href="#" class="cat-card cat-pillow reveal delay-1">
-        <div class="cat-icon"><svg viewBox="0 0 32 32"><path d="M4 12c0-3 3-5 8-5h8c5 0 8 2 8 5v8c0 3-3 5-8 5h-8c-5 0-8-2-8-5z"/><path d="M4 16h24"/></svg></div>
-        <div>
-          <div class="cat-tag">Cervical alignment</div>
-          <h4>Pillows by sleep position</h4>
-          <p>Side, back, stomach &mdash; each requires different support to prevent neck strain and breathing issues.</p>
-          <div class="cat-arrow">Coming soon <span>&rarr;</span></div>
-        </div>
-      </a>
-      <a href="#" class="cat-card cat-light reveal delay-2">
-        <div class="cat-icon"><svg viewBox="0 0 32 32"><circle cx="16" cy="13" r="6"/><path d="M16 19v6M12 25h8M14 27h4"/></svg></div>
-        <div>
-          <div class="cat-tag">Circadian</div>
-          <h4>Light &amp; smart bulbs</h4>
-          <p>Color temperature, intensity, and timing &mdash; how your lighting hijacks or supports your sleep hormones.</p>
-          <div class="cat-arrow">Coming soon <span>&rarr;</span></div>
-        </div>
-      </a>
-      <a href="#" class="cat-card cat-sound reveal delay-3">
-        <div class="cat-icon"><svg viewBox="0 0 32 32"><path d="M6 16c2-4 4-4 6 0s4 8 6 4 4-12 6-8 4 8 6 4"/></svg></div>
-        <div>
-          <div class="cat-tag">Acoustic</div>
-          <h4>White noise &amp; sound</h4>
-          <p>Why your brain still listens during sleep, and how to mask environmental noise without harm.</p>
-          <div class="cat-arrow">Coming soon <span>&rarr;</span></div>
-        </div>
-      </a>
-      <a href="#" class="cat-card cat-temp reveal">
-        <div class="cat-icon"><svg viewBox="0 0 32 32"><path d="M16 4v18M16 22a4 4 0 1 0 4 4 4 4 0 0 0-4-4z"/><path d="M12 4h8"/></svg></div>
-        <div>
-          <div class="cat-tag">Thermoregulation</div>
-          <h4>Temperature &amp; cooling</h4>
-          <p>Your body must drop core temperature by ~1&deg;C to fall into deep sleep. Here's how to help it.</p>
-          <div class="cat-arrow">Coming soon <span>&rarr;</span></div>
-        </div>
-      </a>
-      <a href="#" class="cat-card cat-aroma reveal delay-1">
-        <div class="cat-icon"><svg viewBox="0 0 32 32"><path d="M16 4c-3 6-6 8-6 14a6 6 0 0 0 12 0c0-6-3-8-6-14z"/></svg></div>
-        <div>
-          <div class="cat-tag">Olfactory</div>
-          <h4>Aromatherapy &amp; scent</h4>
-          <p>Lavender, chamomile, and the diffusers that actually deliver therapeutic concentrations.</p>
-          <div class="cat-arrow">Coming soon <span>&rarr;</span></div>
-        </div>
-      </a>
+    <div class="dispatches-grid">
+      <div class="dispatch-col reveal d1">
+        <div class="dispatch-col-tag">Science</div>
+        <a href="#" class="dispatch-item">
+          <div class="dispatch-meta">Apr 22 &middot; 7 min</div>
+          <h4>What actually happens during REM sleep</h4>
+          <p>Your brain fires more during REM than when you are awake. Here is what it is doing.</p>
+        </a>
+        <a href="#" class="dispatch-item">
+          <div class="dispatch-meta">Apr 18 &middot; 9 min</div>
+          <h4>The cortisol-melatonin handoff explained</h4>
+          <p>The two hormones that decide whether you fall asleep, and how they trade places.</p>
+        </a>
+        <a href="#" class="dispatch-item">
+          <div class="dispatch-meta">Apr 12 &middot; 6 min</div>
+          <h4>Sleep debt is real. Sleep banking is not.</h4>
+          <p>Why you cannot stockpile sleep on the weekend, no matter what your friends claim.</p>
+        </a>
+      </div>
+      <div class="dispatch-col reveal d2">
+        <div class="dispatch-col-tag">Reviews</div>
+        <a href="#" class="dispatch-item">
+          <div class="dispatch-meta">Apr 24 &middot; Reviewed</div>
+          <h4>The Hatch Restore 2: worth the upgrade?</h4>
+          <p>A wake-up light, sound machine, and sunset simulator. We tested it for 30 nights.</p>
+        </a>
+        <a href="#" class="dispatch-item">
+          <div class="dispatch-meta">Apr 17 &middot; Reviewed</div>
+          <h4>Weighted blankets: which weight, which fabric?</h4>
+          <p>The 7%-of-bodyweight rule, the cooling versions, and the ones that make you sweat.</p>
+        </a>
+        <a href="#" class="dispatch-item">
+          <div class="dispatch-meta">Apr 10 &middot; Reviewed</div>
+          <h4>Three cervical pillows, after 60 nights each</h4>
+          <p>Memory foam, latex, and buckwheat compared for side and back sleepers.</p>
+        </a>
+      </div>
+      <div class="dispatch-col reveal d3">
+        <div class="dispatch-col-tag">Essays</div>
+        <a href="#" class="dispatch-item">
+          <div class="dispatch-meta">Apr 21 &middot; 11 min</div>
+          <h4>The lost art of going to bed early</h4>
+          <p>How &ldquo;hustle culture&rdquo; redefined sleep as weakness, and why it is quietly correcting.</p>
+        </a>
+        <a href="#" class="dispatch-item">
+          <div class="dispatch-meta">Apr 14 &middot; 8 min</div>
+          <h4>Why we are obsessed with sleep tracking</h4>
+          <p>The paradox of measuring something that anxiety about measuring will worsen.</p>
+        </a>
+        <a href="#" class="dispatch-item">
+          <div class="dispatch-meta">Apr 8 &middot; 14 min</div>
+          <h4>A short history of the bedroom</h4>
+          <p>From shared rooms to private sanctuaries, and what we lost on the way.</p>
+        </a>
+      </div>
     </div>
+  </div>
+</section><section class="pullquote">
+  <div class="pullquote-mark reveal">&ldquo;</div>
+  <div class="pullquote-body">
+    <p class="pullquote-text reveal d1">Sleep is the single most effective thing we can do to reset our brain and body health each day &mdash; Mother Nature&rsquo;s best effort yet at contra-death.</p>
+    <div class="pullquote-cite reveal d2">Matthew Walker &middot; Why We Sleep</div>
   </div>
 </section>
 
-<section class="quote-section">
-  <div class="container">
-    <p class="quote reveal">If sleep does not serve some vital function, then it is the biggest mistake the evolutionary process ever made.</p>
-    <span class="quote-cite reveal delay-1">Allan Rechtschaffen, Sleep Researcher</span>
+<section class="archive" id="archive">
+  <div class="reveal">
+    <div class="section-tag">From the Archive</div>
+    <h2 class="section-title">Earlier <em>readings</em>.</h2>
+    <p class="section-dek">Long-form essays and product investigations that haven&rsquo;t lost their relevance.</p>
+  </div>
+  <div class="archive-table">
+    <a href="#" class="archive-row reveal d1">
+      <div class="archive-date">Apr 4, 2026</div>
+      <h4>Why most sleep supplements are theatre</h4>
+      <div class="archive-byline">An honest catalog of what works</div>
+      <div class="archive-time">12 min</div>
+    </a>
+    <a href="#" class="archive-row reveal d1">
+      <div class="archive-date">Mar 28, 2026</div>
+      <h4>The case against sleeping in on weekends</h4>
+      <div class="archive-byline">Social jet lag, defined</div>
+      <div class="archive-time">7 min</div>
+    </a>
+    <a href="#" class="archive-row reveal d2">
+      <div class="archive-date">Mar 21, 2026</div>
+      <h4>Reading by candlelight: a one-week experiment</h4>
+      <div class="archive-byline">By the editors</div>
+      <div class="archive-time">9 min</div>
+    </a>
+    <a href="#" class="archive-row reveal d2">
+      <div class="archive-date">Mar 15, 2026</div>
+      <h4>Earplugs vs white noise: which actually works?</h4>
+      <div class="archive-byline">A controlled comparison</div>
+      <div class="archive-time">6 min</div>
+    </a>
+    <a href="#" class="archive-row reveal d3">
+      <div class="archive-date">Mar 8, 2026</div>
+      <h4>The bedroom as a sanctuary, not an office</h4>
+      <div class="archive-byline">Essay</div>
+      <div class="archive-time">10 min</div>
+    </a>
+    <a href="#" class="archive-row reveal d3">
+      <div class="archive-date">Mar 1, 2026</div>
+      <h4>What a good morning routine actually looks like</h4>
+      <div class="archive-byline">Mornings begin the night before</div>
+      <div class="archive-time">8 min</div>
+    </a>
   </div>
 </section>
 
-<section id="articles">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-eyebrow">Latest reading</div>
-      <h2 class="section-title">Start with the <em>fundamentals</em>.</h2>
-      <p class="section-lead">Before buying anything, understand the basics. These guides explain how sleep works &mdash; and what changes if you actually start taking it seriously.</p>
-    </div>
-    <div class="articles-grid">
-      <a href="#" class="article reveal">
-        <div class="article-cover article-cover-1"></div>
-        <div class="article-body">
-          <div class="article-tag">Sleep Architecture</div>
-          <h4>The 4 stages of sleep, and why each one matters</h4>
-          <p>Light sleep, deep sleep, REM &mdash; what happens during each, and how disruption affects everything from memory to immune function.</p>
-          <div class="article-meta"><span>Coming soon</span><span class="article-meta-read">Read &rarr;</span></div>
-        </div>
-      </a>
-      <a href="#" class="article reveal delay-1">
-        <div class="article-cover article-cover-2"></div>
-        <div class="article-body">
-          <div class="article-tag">Circadian Rhythm</div>
-          <h4>How light controls your sleep, and how to take it back</h4>
-          <p>Why morning sunlight, evening dimness, and color temperature matter more than nearly any supplement you can buy.</p>
-          <div class="article-meta"><span>Coming soon</span><span class="article-meta-read">Read &rarr;</span></div>
-        </div>
-      </a>
-      <a href="#" class="article reveal delay-2">
-        <div class="article-cover article-cover-3"></div>
-        <div class="article-body">
-          <div class="article-tag">Environment</div>
-          <h4>The ideal bedroom: what science actually recommends</h4>
-          <p>Temperature, humidity, sound, light, surface &mdash; an evidence-based blueprint for the room that delivers your best sleep.</p>
-          <div class="article-meta"><span>Coming soon</span><span class="article-meta-read">Read &rarr;</span></div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="closing" id="about">
-  <div class="closing-card reveal">
-    <h2>Better sleep isn't <em>found</em>.<br>It's <em>built</em>.</h2>
-    <p>One night, one habit, one decision at a time. We're here to make those decisions easier &mdash; and grounded in something more reliable than marketing.</p>
-    <a href="#categories" class="btn btn-primary">Begin with the guides <span>&rarr;</span></a>
+<section class="subscribe" id="subscribe">
+  <div class="subscribe-inner">
+    <div class="subscribe-tag reveal">The Sunday Letter</div>
+    <h2 class="reveal d1">A short, useful note &mdash; <em>every Sunday</em>.</h2>
+    <p class="reveal d2">One sleep finding, one product worth knowing, one habit worth trying. Sent before sunrise. Read with coffee.</p>
+    <form class="subscribe-form reveal d3" onsubmit="event.preventDefault();this.querySelector('button').textContent='Sent &rarr;';this.querySelector('input').value=''">
+      <input type="email" placeholder="Your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <div class="subscribe-meta reveal d4">No spam. Unsubscribe anytime.</div>
   </div>
 </section>
 
 <footer>
-  <div class="footer-content">
-    <div>
-      <div class="footer-brand"><span class="logo-mark"></span>SleepLab</div>
-      <p class="footer-tag">Honest, evidence-based guides to the science and products of better sleep.</p>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Sleep<em>Lab</em></div>
+        <p class="footer-tagline">A publication on the science of rest, the products worth your money, and the habits worth keeping.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Sections</div>
+        <ul>
+          <li><a href="#cycle">The Cycle</a></li>
+          <li><a href="#stack">The Stack</a></li>
+          <li><a href="#dispatches">Dispatches</a></li>
+          <li><a href="#archive">Archive</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Departments</div>
+        <ul>
+          <li><a href="#">Science</a></li>
+          <li><a href="#">Reviews</a></li>
+          <li><a href="#">Essays</a></li>
+          <li><a href="#subscribe">Newsletter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">About</div>
+        <ul>
+          <li><a href="#">Editorial standards</a></li>
+          <li><a href="#">Affiliate disclosure</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-meta">
-      <p>Affiliate disclosure: we may earn a commission</p>
-      <p>on purchases made through links on this site.</p>
-      <p style="margin-top:.6rem;opacity:.6">Not medical advice.</p>
+    <div class="footer-bottom">
+      <span>SleepLab &copy; 2026 &middot; The Science of Rest</span>
+      <span>ISSN 0000-0000 &middot; Published in the Americas</span>
     </div>
   </div>
-  <div class="footer-bottom">SLEEPLAB &copy; 2026 &mdash; THE SCIENCE OF BETTER REST</div>
 </footer>
 
 <script>
-// Generate animated stars
-(function(){
-  const sf=document.getElementById('stars');
-  for(let i=0;i<80;i++){
-    const s=document.createElement('span');
-    s.className='star'+(Math.random()>.85?' bright':Math.random()>.5?'':' tiny');
-    s.style.top=Math.random()*100+'%';
-    s.style.left=Math.random()*100+'%';
-    s.style.animationDelay=(Math.random()*4)+'s';
-    s.style.animationDuration=(3+Math.random()*4)+'s';
-    sf.appendChild(s);
-  }
-})();
-
-// Scroll reveal
-const io=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('in');
-      // Animate stats counter
-      if(e.target.querySelector('.stat-num')){
-        const n=e.target.querySelector('.stat-num');
-        const target=parseInt(n.dataset.target);
-        const dur=1400;const start=performance.now();
-        const small=n.querySelector('small')?.outerHTML||'';
-        const animate=(now)=>{
-          const p=Math.min((now-start)/dur,1);
-          const ease=1-Math.pow(1-p,3);
-          const v=Math.round(target*ease);
-          n.innerHTML=v+small;
-          if(p<1)requestAnimationFrame(animate);
-        };
-        n.innerHTML='0'+small;
-        requestAnimationFrame(animate);
-      }
-      io.unobserve(e.target);
-    }
-  });
-},{threshold:.15,rootMargin:'-50px'});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-// Nav background on scroll
-const nav=document.getElementById('nav');
-let lastScroll=0;
-window.addEventListener('scroll',()=>{
-  const y=window.scrollY;
-  if(y>50)nav.style.background='rgba(8,11,26,.85)';
-  else nav.style.background='rgba(8,11,26,.6)';
-  lastScroll=y;
+const stages={
+  awake:{label:'Awake',text:'Brief awakenings between cycles are normal &mdash; you have ten to twenty per night. Most are forgotten by morning. Trouble starts when they last more than a few minutes.'},
+  rem:{label:'REM Sleep',text:'Rapid Eye Movement sleep is when most dreams happen, when memory consolidates, and when your brain processes emotions. The longest REM stretches happen in the second half of the night.'},
+  n1:{label:'Stage 1 (N1)',text:'The drowsy threshold. Brief, light, easy to wake from. You spend only about five percent of your night here, mostly during the transition into sleep.'},
+  n2:{label:'Stage 2 (N2)',text:'Light non-REM sleep. About half your night happens here. Heart rate slows, body temperature drops, and your brain begins making sleep spindles &mdash; bursts of activity tied to learning consolidation.'},
+  n3:{label:'Deep Sleep (N3)',text:'Slow-wave sleep. The most physically restorative stage. Growth hormone is released, immune memory is reinforced, and the brain clears metabolic waste. Most happens in the first third of the night.'}
+};
+const info=document.getElementById('cycleInfo');
+document.querySelectorAll('.cycle-stage').forEach(el=>{
+  const show=()=>{
+    document.querySelectorAll('.cycle-stage').forEach(s=>s.classList.remove('active'));
+    el.classList.add('active');
+    const s=stages[el.dataset.stage];
+    info.innerHTML='<div class="cycle-info-stage">'+s.label+'</div><p class="cycle-info-text">'+s.text+'</p>';
+  };
+  el.addEventListener('mouseenter',show);
+  el.addEventListener('click',show);
+  el.addEventListener('focus',show);
 });
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:0,rootMargin:'0px 0px -80px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+setTimeout(()=>{document.querySelectorAll('.reveal:not(.in)').forEach(el=>el.classList.add('in'));},2500);
 </script>
 </body>
 </html>
